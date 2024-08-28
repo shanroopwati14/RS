@@ -1,153 +1,210 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Dashboard {% endblock %} 
+
+{% block title %} Dashboard {% endblock %}
+
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+   .form-group {
+       margin-bottom: 30px; /* Add space between dynamic fields */
+   }
+</style>
+{% endblock stylesheets %}
+
 
 {% block content %}
+<script src="//unpkg.com/alpinejs" defer></script>
 
-    <div class="content">
-     <div aria-disabled="" class="row">
-            <div class="col-lg-4">
-                <div class="card card-chart">
-                    <div class="card-header">
-                        <h5 class="card-category">Quant Small Cap Fund:</h5>
+   <div class="content">
+    <div aria-disabled="" class="row">
+           <div class="col-lg-4">
+               <div class="card card-chart">
+                   <div class="card-header">
+                       <h5 class="card-category">Quant Small Cap Fund:</h5>
 {#                        <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>#}
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
+                   </div>
+                   <div class="card-body">
+                       <div class="chart-area">
 {#                            <canvas id="chartLinePurple"></canvas>#}
-                            <ul>
-                                <li>Category: Small Cap</li>
-                                <li>3-Year CAGR: 42.13%</li>
-                                <li>Expense Ratio: 0.70%</li>
-                                </ul>
-                            This fund is known for its aggressive approach, focusing on high-growth small-cap companies, making it suitable for investors with a high-risk tolerance.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card card-chart">
-                    <div class="card-header">
-                        <h5 class="card-category">Nippon India Small Cap Fund:</h5>
+                           <ul>
+                               <li>Category: Small Cap</li>
+                               <li>3-Year CAGR: 42.13%</li>
+                               <li>Expense Ratio: 0.70%</li>
+                               </ul>
+                           This fund is known for its aggressive approach, focusing on high-growth small-cap companies, making it suitable for investors with a high-risk tolerance.
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-lg-4">
+               <div class="card card-chart">
+                   <div class="card-header">
+                       <h5 class="card-category">Nippon India Small Cap Fund:</h5>
 {#                        <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>#}
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
+                   </div>
+                   <div class="card-body">
+                       <div class="chart-area">
 {#                            <canvas id="CountryChart"></canvas>#}
-                            <ul>
-                                <li>Category: Small Cap</li>
-                                <li>3-Year CAGR: 37.61%</li>
-                                <li>Expense Ratio: 0.79%</li>
-                                </ul>
-                            It invests heavily in small-cap stocks and has consistently performed well, making it another strong candidate for aggressive investors.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card card-chart">
-                    <div class="card-header">
-                        <h5 class="card-category">HDFC Mid-Cap Opportunities Fund:</h5>
+                           <ul>
+                               <li>Category: Small Cap</li>
+                               <li>3-Year CAGR: 37.61%</li>
+                               <li>Expense Ratio: 0.79%</li>
+                               </ul>
+                           It invests heavily in small-cap stocks and has consistently performed well, making it another strong candidate for aggressive investors.
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-lg-4">
+               <div class="card card-chart">
+                   <div class="card-header">
+                       <h5 class="card-category">HDFC Mid-Cap Opportunities Fund:</h5>
 {#                        <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>#}
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
+                   </div>
+                   <div class="card-body">
+                       <div class="chart-area">
 {#                            <canvas id="chartLineGreen"></canvas>#}
-                            <ul>
-                                <li>Category: Mid Cap</li>
-                                <li>3-Year CAGR: 31.21%</li>
-                                <li>Expense Ratio: 0.75%</li>
-                                </ul>
-                            This fund targets mid-cap stocks and has delivered solid returns over the years, balancing risk with potential reward.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-chart">
-                    <div class="card-header ">
-                         <h3 class="card-title">For Advance Recommendation fill the following form</h3>
-                        <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'CustomerGoal')">Customer Goal</button>
-        <button class="tablinks" onclick="openTab(event, 'RiskProfile')">Risk Profile</button>
-        <button class="tablinks" onclick="openTab(event, 'FinancialGoal')">Financial Goals</button>
-    </div>
-
-    <!-- Tab Content -->
-    <div id="CustomerGoal" class="tab-content">
-        <h3>Customer Goal</h3>
-        <form>
-            <label for="goal">Customer Goal:</label><br>
-            <input type="text" id="goal" name="goal"><br><br>
-            <input class="submitBut" type="submit" value="Submit">
-        </form>
-    </div>
-
-    <div id="RiskProfile" class="tab-content">
-        <h3>Risk Profile</h3>
-        <form>
-            <label for="risk">Risk Level:</label><br>
-            <input type="text" id="risk" name="risk"><br><br>
-            <input class="submitBut"  type="submit" value="Submit">
-        </form>
-    </div>
-
-    <div id="FinancialGoal" class="tab-content">
-        <h3>Financial Goals</h3>
-        <form>
-            <label for="financial">Financial Goal:</label><br>
-            <input type="text" id="financial" name="financial"><br><br>
-            <input class="submitBut active"  type="submit" value="Submit">
-        </form>
-    </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+                           <ul>
+                               <li>Category: Mid Cap</li>
+                               <li>3-Year CAGR: 31.21%</li>
+                               <li>Expense Ratio: 0.75%</li>
+                               </ul>
+                           This fund targets mid-cap stocks and has delivered solid returns over the years, balancing risk with potential reward.
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-12">
+               <div class="card card-chart">
+                   <div class="card-header ">
+                        <h3 class="card-title">For Advance Recommendation fill the following form</h3>
+                       <div class="tab">
+       <button class="tablinks" onclick="openTab(event, 'GoalBasedInvestment')">Goal Based Investment</button>
+       <button class="tablinks" onclick="openTab(event, 'LifecycleFramework')">Lifecycle Framework</button>
+   </div>
 
 
-    </div>
+   <!-- Tab Content -->
+   <div id="GoalBasedInvestment" class="tab-content">
+       <h3>Goal Based Investment</h3>
+       <form>
+            <div x-data="formHandler()">
+           <template x-for="(field, index) in fields" :key="index">
+               <div class="form-group">
+                   <div>
+                       <label for="goal-name"><h4>Goal Name:</h4></label>
+                       <input type="text" x-model="Goal Name">
+                       <span x-text="Goal Name"></span>
+                   </div>
+                   <div>
+
+
+                       <label for="goal-duration"><h5>Goal Duration:</h5></label>
+                       <input type="range" x-model="field.range1" min="1" max="50" step="1" id="goal-duration">
+                       <span x-text="field.range1"></span>
+                   </div>
+  
+                   <div>
+                       <label for="risk-tolerance"><h5>Risk Tolerance</h5></label>
+                       <select x-model="Risk Tolerance">
+                           <option value="" disabled>Risk Tolerance</option>
+                           <option>Conservative</option>
+                           <option>Moderate</option>
+                           <option>Aggressive</option>
+                       </select>
+                       
+                       <!-- Risk Tolerance: <span x-text="Risk Tolerance"></span> -->
+                   </div>
+  
+                   <div>
+                       <label for="asset-allocation"><h5>Asset Allocation</h5></label>
+                       <input type="range" x-model="field.range2" min="0" max="1000000" step="50000" id="asset-allocation">
+                       <span x-text="field.range2"></span>
+                   </div>
+                   <!-- <button type="button" @click="removeField(index)">Remove</button> -->
+               </div>
+              
+           </template>
+           <button type="button" @click="addField">+ Add More</button><br>
+            </div><br>
+            <input class="submitBut"  type="submit" value="Save">
+       </form>
+  
+       <script>
+           function formHandler() {
+               return {
+                   fields: [{ value1: '', value2: '', value3: '' }],
+                   addField() {
+                       this.fields.push({ value1: '', value2: '', value3: '' });
+                   },
+                   removeField(index) {
+                       this.fields.splice(index, 1);
+                   }
+               }
+           }
+       </script>
+   </div>
+
+
+   <div id="LifecycleFramework" class="tab-content">
+       <h3>Lifecycle Framework</h3>
+       <form>
+           <label for="risk">Risk Level:</label><br>
+           <input type="text" id="risk" name="risk"><br><br>
+           <input class="submitBut"  type="submit" value="Submit">
+       </form>
+   </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
 
 {% endblock content %}
+
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 
+
 <script>
-    $(document).ready(function () {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+   $(document).ready(function () {
+       // Javascript method's body can be found in assets/js/demos.js
+       demo.initDashboardPageCharts();
 
-    });
-      function openTab(evt, tabName) {
-            // Hide all tab content
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
 
-            // Remove the active class from all buttons
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
+   });
+     function openTab(evt, tabName) {
+           // Hide all tab content
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("tab-content");
+           for (i = 0; i < tabcontent.length; i++) {
+               tabcontent[i].style.display = "none";
+           }
 
-            // Show the current tab's content and add the active class to the button
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
 
-        // Default open tab
-        document.getElementsByClassName('tablinks')[0].click();
-    </script>
+           // Remove the active class from all buttons
+           tablinks = document.getElementsByClassName("tablinks");
+           for (i = 0; i < tablinks.length; i++) {
+               tablinks[i].className = tablinks[i].className.replace(" active", "");
+           }
+
+
+           // Show the current tab's content and add the active class to the button
+           document.getElementById(tabName).style.display = "block";
+           evt.currentTarget.className += " active";
+       }
+
+
+       // Default open tab
+       document.getElementsByClassName('tablinks')[0].click();
+   </script>
 </script>
+
 
 {% endblock javascripts %}
